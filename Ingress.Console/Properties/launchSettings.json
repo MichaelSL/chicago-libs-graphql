@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Ingress.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "--libraries-filename=\"C:\\tmp\\libs.csv\" --visitors-filename=\"C:\\tmp\\visitors.csv\""
+    }
+  }
+}

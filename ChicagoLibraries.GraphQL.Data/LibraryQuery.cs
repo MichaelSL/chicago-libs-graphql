@@ -1,4 +1,5 @@
-﻿using ChicagoLibraries.GraphQL.Data.Model;
+﻿using ChicagoLibraries.Data;
+using ChicagoLibraries.Data.Model;
 using GraphQL.Types;
 using System;
 using System.Collections.Generic;
@@ -8,26 +9,18 @@ namespace ChicagoLibraries.GraphQL.Data
 {
     public class LibraryQuery: ObjectGraphType<object>
     {
-        public LibraryQuery()
+        public LibraryQuery(ILibraryRepository libraryRepository)
         {
             Name = "Query";
 
-            Field<ListGraphType<LibraryType>>("libraries", resolve: context =>
-            {
-                return new Library[]
+            Field<ListGraphType<LibraryType>>("libraries", resolve: context => libraryRepository.GetLibraries());
+            Field<LibraryType>("library",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<StringGraphType>>
                 {
-                    new Library
-                    {
-                        Name = "lib1",
-                        Address = "street"
-                    },
-                    new Library
-                    {
-                        Name = "lib2",
-                        Address = " another street"
-                    }
-                };
-            });
+                    Name = "name",
+                    Description = "Library name"
+                }),
+                resolve: context => libraryRepository.GetLibrary(context.GetArgument<string>("name")));
         }
     }
 }

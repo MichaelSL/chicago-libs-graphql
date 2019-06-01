@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChicagoLibraries.GraphQL.Data.Model
+namespace ChicagoLibraries.Data.Model
 {
     public class Library
     {

@@ -9,6 +9,7 @@ namespace Ingress.DataProviders.LiteDb
 {
     public class LiteDbRepository
     {
+        //ToDo: refactor this to get connection string without Configuration dependency
         private const string DatabaseFilenameKey = "DataProviders:LiteDb:database";
         private readonly IConfiguration configuration;
 

@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ChicagoLibraries.Data.LiteDb\ChicagoLibraries.Data.LiteDb.csproj" />
     <ProjectReference Include="..\ChicagoLibraries.GraphQL.Data\ChicagoLibraries.GraphQL.Data.csproj" />
   </ItemGroup>
 

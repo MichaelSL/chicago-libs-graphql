@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Ingress.Csv
 {
@@ -64,6 +65,11 @@ namespace Ingress.Csv
             {
                 return (0, ex);
             }
+        }
+
+        public Task<(int, Exception)> ProcessDataAsync(IDictionary<string, object> settings)
+        {
+            return Task.FromResult(this.ProcessData(settings));
         }
     }
 }

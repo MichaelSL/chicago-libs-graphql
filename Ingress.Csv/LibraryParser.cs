@@ -28,18 +28,19 @@ namespace Ingress.Csv
 
         private Library CreateLibrary(IList<string> lineValues)
         {
-            var lib = new Library();
-
-            lib.Name = lineValues[0];
-            lib.HoursOfOperation = lineValues[1];
-            lib.Cybernavigator = FromYesNo(lineValues[2]) ?? throw new ArgumentOutOfRangeException("Cybernavigator");
-            lib.TeacherInLibrary = FromYesNo(lineValues[3]) ?? throw new ArgumentOutOfRangeException("Teacher In The Library");
-            lib.Address = lineValues[4];
-            lib.City = lineValues[5];
-            lib.State = lineValues[6];
-            lib.Zip = lineValues[7];
-            lib.Phone = lineValues[8];
-            lib.Website = lineValues[9];
+            var lib = new Library
+            {
+                Name = lineValues[0],
+                HoursOfOperation = lineValues[1],
+                Cybernavigator = FromYesNo(lineValues[2]) ?? throw new ArgumentOutOfRangeException("Cybernavigator"),
+                TeacherInLibrary = FromYesNo(lineValues[3]) ?? throw new ArgumentOutOfRangeException("Teacher In The Library"),
+                Address = lineValues[4],
+                City = lineValues[5],
+                State = lineValues[6],
+                Zip = lineValues[7],
+                Phone = lineValues[8],
+                Website = lineValues[9]
+            };
             (lib.Lat, lib.Lon) = ParseLocation(lineValues[10]);
 
             return lib;

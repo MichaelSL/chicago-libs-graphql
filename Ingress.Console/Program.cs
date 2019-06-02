@@ -1,6 +1,7 @@
 ﻿using Ingress.Core;
 using Ingress.Csv;
 using Ingress.DataProviders.LiteDb;
+using Ingress.SODA;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -9,12 +10,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Ingress.Console
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             //Create Serilog logger
             Log.Logger = new LoggerConfiguration()
@@ -27,9 +29,9 @@ namespace Ingress.Console
             serviceCollection.AddLogging(loggingBuilder =>
                     loggingBuilder.AddSerilog(dispose: true))
                 .AddTransient<IDataProvider, LibrariesLiteDbDataProvider>()
-                .AddTransient<IIngressProvider, LibrariesCsvDataProvider>()
+                .AddTransient<IIngressProvider, LibrariesSODADataProvider>()
                 .AddTransient<LibraryParser>()
-                .AddTransient<VisitorsParser>()
+                .AddTransient<Csv.VisitorsParser>()
                 .AddTransient<LiteDbRepository>();
                 
             
@@ -66,9 +68,12 @@ namespace Ingress.Console
 
             var ingressProvider = serviceProvider.GetService<IIngressProvider>();
 
-            var processingResult = ingressProvider.ProcessData(parsedArgs);
+            (int entitiesProcessed, Exception exception) = await ingressProvider.ProcessDataAsync(parsedArgs);
 
-            Log.Debug("All done!");
+            if (exception == null)
+                Log.Information("All done! {entitiesProcessed} processed", entitiesProcessed);
+            else
+                Log.Error(exception, "Error");
         }
     }
 }

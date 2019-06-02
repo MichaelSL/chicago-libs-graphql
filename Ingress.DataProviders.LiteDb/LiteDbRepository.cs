@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
+using System.Linq;
 
 namespace Ingress.DataProviders.LiteDb
 {
@@ -30,6 +30,21 @@ namespace Ingress.DataProviders.LiteDb
             {
                 var collection = db.GetCollection<T>(tableName);
                 collection.InsertBulk(data);
+            }
+        }
+
+        public void UpsertData<T> (IEnumerable<T> data, string tableName)
+        {
+            var databaseName = configuration[DatabaseFilenameKey];
+            if (string.IsNullOrEmpty(databaseName))
+            {
+                throw new ArgumentException($"{databaseName} configuration is missing");
+            }
+
+            using (var db = new LiteDatabase(databaseName))
+            {
+                var collection = db.GetCollection<T>(tableName);
+                collection.Upsert(data);
             }
         }
     }

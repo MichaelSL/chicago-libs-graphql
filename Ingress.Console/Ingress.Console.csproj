@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Ingress.Core\Ingress.Core.csproj" />
     <ProjectReference Include="..\Ingress.Csv\Ingress.Csv.csproj" />
     <ProjectReference Include="..\Ingress.DataProviders.LiteDb\Ingress.DataProviders.LiteDb.csproj" />
+    <ProjectReference Include="..\Ingress.SODA\Ingress.SODA.csproj" />
   </ItemGroup>
 
   <ItemGroup>

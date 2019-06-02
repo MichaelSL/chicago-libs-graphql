@@ -19,9 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChicagoLibraries.GraphQLHos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChicagoLibraries.GraphQL.Data", "ChicagoLibraries.GraphQL.Data\ChicagoLibraries.GraphQL.Data.csproj", "{30873C64-5A50-41DF-A2B9-B88C4B7569B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChicagoLibraries.Data", "ChicagoLibraries.Data\ChicagoLibraries.Data.csproj", "{D4FA0828-6A94-458A-B04C-6C340F500BBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChicagoLibraries.Data", "ChicagoLibraries.Data\ChicagoLibraries.Data.csproj", "{D4FA0828-6A94-458A-B04C-6C340F500BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChicagoLibraries.Data.LiteDb", "ChicagoLibraries.Data.LiteDb\ChicagoLibraries.Data.LiteDb.csproj", "{E8E3A89C-B622-48ED-B5A2-E55FAD7C7005}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChicagoLibraries.Data.LiteDb", "ChicagoLibraries.Data.LiteDb\ChicagoLibraries.Data.LiteDb.csproj", "{E8E3A89C-B622-48ED-B5A2-E55FAD7C7005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingress.SODA", "Ingress.SODA\Ingress.SODA.csproj", "{EEC98716-4CF3-4E0B-BFF3-34E5E96BEFDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingress.SODA.UnitTests", "Ingress.SODA.UnitTests\Ingress.SODA.UnitTests.csproj", "{FBC2ADB3-5E87-43E4-8969-D102E122DE9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,12 +69,21 @@ Global
 		{E8E3A89C-B622-48ED-B5A2-E55FAD7C7005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8E3A89C-B622-48ED-B5A2-E55FAD7C7005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8E3A89C-B622-48ED-B5A2-E55FAD7C7005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC98716-4CF3-4E0B-BFF3-34E5E96BEFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC98716-4CF3-4E0B-BFF3-34E5E96BEFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC98716-4CF3-4E0B-BFF3-34E5E96BEFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC98716-4CF3-4E0B-BFF3-34E5E96BEFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBC2ADB3-5E87-43E4-8969-D102E122DE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC2ADB3-5E87-43E4-8969-D102E122DE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC2ADB3-5E87-43E4-8969-D102E122DE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC2ADB3-5E87-43E4-8969-D102E122DE9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0A7D5ADD-7168-458A-A401-B128E7D593A5} = {974E3614-8209-4F82-8039-83F085D4F3C3}
+		{FBC2ADB3-5E87-43E4-8969-D102E122DE9C} = {974E3614-8209-4F82-8039-83F085D4F3C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E09177DD-D9AB-4E5A-95B3-7518871B18F7}

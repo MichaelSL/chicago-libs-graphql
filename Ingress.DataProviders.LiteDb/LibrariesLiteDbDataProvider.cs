@@ -21,7 +21,8 @@ namespace Ingress.DataProviders.LiteDb
         {
             var libraryEntities = libraries.Adapt<IEnumerable<Entities.Library>>();
 
-            liteDbRepository.UpsertData(libraryEntities, "Libraries");
+            liteDbRepository.ClearTable("Libraries");
+            liteDbRepository.InsertData(libraryEntities, "Libraries");
         }
     }
 }

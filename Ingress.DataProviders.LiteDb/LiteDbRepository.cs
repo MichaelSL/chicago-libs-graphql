@@ -18,7 +18,7 @@ namespace Ingress.DataProviders.LiteDb
             this.configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
 
-        public void SaveData<T> (IEnumerable<T> data, string tableName)
+        public void InsertData<T> (IEnumerable<T> data, string tableName)
         {
             var databaseName = configuration[DatabaseFilenameKey];
             if (string.IsNullOrEmpty(databaseName))
@@ -45,6 +45,21 @@ namespace Ingress.DataProviders.LiteDb
             {
                 var collection = db.GetCollection<T>(tableName);
                 collection.Upsert(data);
+            }
+        }
+
+        public void ClearTable(string tableName)
+        {
+            var databaseName = configuration[DatabaseFilenameKey];
+            if (string.IsNullOrEmpty(databaseName))
+            {
+                throw new ArgumentException($"{databaseName} configuration is missing");
+            }
+
+            using (var db = new LiteDatabase(databaseName))
+            {
+                var collection = db.GetCollection(tableName);
+                collection.Delete(Query.All());
             }
         }
     }

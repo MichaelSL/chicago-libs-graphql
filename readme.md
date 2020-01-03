@@ -7,6 +7,6 @@
 
 ## Demo
 
-Available [here](http://142.93.244.193/ui/playground)
+Not Available 
 
 ## Drop me an email if you know someone from Chicago Open Data
